@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon-16x16.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Calculadora de Fechas</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Calculadora de Fechas</h1>
+    </header>
+    <main class="main">
+      <p>
+        Introduzca dos fechas para ver su diferencia en años, meses, días y
+        más...
+      </p>
+
+      <div class="form">
+        <input type="date" class="input" id="date1" placeholder="messi" />
+        <input type="date" class="input" id="date2" />
+        <button class="btn" id="btn">Calcular</button>
+      </div>
+
+      <div class="answers-container">
+        <div class="answers-conventions">
+          <p>Años:</p>
+          <p>Meses:</p>
+          <p>Semanas:</p>
+          <p>Días:</p>
+          <p>Horas:</p>
+          <p>Minutos:</p>
+        </div>
+        <div class="answers-dates">
+          <p id="years"></p>
+          <p id="months"></p>
+          <p id="weeks"></p>
+          <p id="days"></p>
+          <p id="hours"></p>
+          <p id="minutes"></p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p><b> &copy; Hecho por Sebastián GR</b></p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>

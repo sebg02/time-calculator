@@ -1,0 +1,76 @@
+:root {
+  --bc-color: #121212;
+  --text-color: #efefef;
+  --first: #e8ce4d;
+  --first-hover: #e0c341;
+  --font: "Oswald", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bc-color);
+  color: var(--text-color);
+  font-family: var(--font);
+}
+
+.header {
+  text-align: center;
+  border-bottom: solid 3px var(--first);
+}
+
+.main {
+  max-width: 600px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.input-field {
+  display: flex;
+  gap: 8px;
+}
+
+.answers-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  padding: 0.5rem;
+  flex-grow: 1;
+}
+
+.answers-dates {
+  text-align: right;
+}
+
+.btn {
+  border: 1px solid var(--first);
+  border-radius: 0.5rem;
+  background-color: var(--first);
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--first-hover);
+  border: 1px solid var(--first);
+}
+
+.footer {
+  text-align: center;
+  border-top: solid 3px var(--first);
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
