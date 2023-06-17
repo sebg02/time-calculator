@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Calculadora de Fechas</title>
   </head>
-  <body>
+  <body class="dark-theme">
     <header class="header">
       <h1>Calculadora de Fechas</h1>
     </header>
@@ -54,7 +54,7 @@
       </p>
 
       <div class="form">
-        <input type="date" class="input" id="date1" placeholder="messi" />
+        <input type="date" class="input" id="date1" />
         <input type="date" class="input" id="date2" />
         <button class="btn" id="btn">Calcular</button>
       </div>
@@ -77,10 +77,17 @@
           <p id="minutes"></p>
         </div>
       </div>
+      <p id="error-field" class="error-field"></p>
     </main>
+
     <footer class="footer">
-      <p><b> &copy; Hecho por Sebastián GR</b></p>
+      <div class="footer-content">
+        <p><b> &copy; Hecho por Sebastián GR</b></p>
+        <button id="themeBtn" class="themeBtn">🌞</button>
+      </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

@@ -1,56 +1,61 @@
 const btn = document.getElementById("btn");
 
-const milisecondsToUnits = {
-  miliToYears: function (miliseconds) {
-    return miliseconds / 31536000000;
-  },
-  miliToMonths: function (miliseconds) {
-    return miliseconds / 2629800000;
-  },
-  miliToWeeks: function (miliseconds) {
-    return miliseconds / 604800000;
-  },
-  miliToDays: function (miliseconds) {
-    return miliseconds / 86400000;
-  },
-  miliToHours: function (miliseconds) {
-    return miliseconds / 3600000;
-  },
-  miliToMinutes: function (miliseconds) {
-    return miliseconds / 60000;
-  }
-};
-
 btn.addEventListener("click", () => {
-  let date1 = new Date(document.getElementById("date1").value);
-  let date2 = new Date(document.getElementById("date2").value);
+  const fecha1 = moment(document.getElementById("date1").value);
+  const fecha2 = moment(document.getElementById("date2").value);
 
-  let years = document.getElementById("years");
-  let months = document.getElementById("months");
-  let weeks = document.getElementById("weeks");
-  let days = document.getElementById("days");
-  let hours = document.getElementById("hours");
-  let minutes = document.getElementById("minutes");
+  const years = document.getElementById("years");
+  const months = document.getElementById("months");
+  const weeks = document.getElementById("weeks");
+  const days = document.getElementById("days");
+  const hours = document.getElementById("hours");
+  const minutes = document.getElementById("minutes");
+  const errorField = document.getElementById("error-field");
 
-  date1 = Date.parse(date1);
-  date2 = Date.parse(date2);
+  if (!fecha1.isValid() || !fecha2.isValid()) {
+    errorField.textContent = "Error: Fecha inválida.";
+    years.textContent = "-";
+    months.textContent = "-";
+    weeks.textContent = "-";
+    days.textContent = "-";
+    hours.textContent = "-";
+    minutes.textContent = "-";
+    return;
+  }
 
-  let result = date2 - date1;
+  if (fecha2.isBefore(fecha1)) {
+    errorField.textContent = "Error: Las fechas están invertidas.";
+    years.textContent = "-";
+    months.textContent = "-";
+    weeks.textContent = "-";
+    days.textContent = "-";
+    hours.textContent = "-";
+    minutes.textContent = "-";
+    return;
+  }
 
-  years.innerHTML = Math.round(milisecondsToUnits.miliToYears(result));
-  months.innerHTML = Math.round(
-    milisecondsToUnits.miliToMonths(result)
-  ).toLocaleString("en-US");
-  weeks.innerHTML = Math.round(
-    milisecondsToUnits.miliToWeeks(result)
-  ).toLocaleString("en-US");
-  days.innerHTML = milisecondsToUnits
-    .miliToDays(result)
-    .toLocaleString("en-US");
-  hours.innerHTML = milisecondsToUnits
-    .miliToHours(result)
-    .toLocaleString("en-US");
-  minutes.innerHTML = milisecondsToUnits
-    .miliToMinutes(result)
-    .toLocaleString("en-US");
+  const diffYears = fecha2.diff(fecha1, "years");
+  const diffMonths = fecha2.diff(fecha1, "months");
+  const diffWeeks = fecha2.diff(fecha1, "weeks");
+  const diffDays = fecha2.diff(fecha1, "days");
+  const diffHours = fecha2.diff(fecha1, "hours");
+  const diffMinutes = fecha2.diff(fecha1, "minutes");
+
+  years.textContent = diffYears;
+  months.textContent = diffMonths;
+  weeks.textContent = diffWeeks;
+  days.textContent = diffDays;
+  hours.textContent = diffHours;
+  minutes.textContent = diffMinutes;
+  errorField.textContent = "";
+});
+
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  document.body.classList.toggle("light-theme");
+  themeBtn.innerHTML == "🌞"
+    ? (themeBtn.innerHTML = "🌒")
+    : (themeBtn.innerHTML = "🌞");
 });
